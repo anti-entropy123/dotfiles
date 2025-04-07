@@ -1,0 +1,38 @@
+# 代理
+export MINI_KUBE_API="192.168.49.2"
+export NO_PROXY="$MINI_KUBE_API,127.0.0.1,localhost"
+
+proxy-on() {
+        export http_proxy=http://localhost:8888
+        export https_proxy=http://localhost:8888
+}
+proxy-on
+proxy-off() {
+        unset http_proxy
+        unset https_proxy
+}
+
+# go
+export GOPATH=/home/yjn/go
+
+# 固定输入行于底部 
+# printf '\n%.0s' {1..100}
+
+# alias
+# alias docker="sudo docker"
+alias apt="sudo apt"
+alias o=xdg-open
+alias reboot="echo 'Are you sure?'"
+alias cat='batcat'
+# alias grep='rg'
+
+# PATH
+export PATH=/home/yjn/go/bin:$PATH
+export PATH=/home/yjn/.local/bin:$PATH
+
+# kubectl
+alias k='kubectl'
+alias kg='k get'
+alias ka='k apply'
+alias ke='k edit'
+alias kd='k describe'
