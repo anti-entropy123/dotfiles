@@ -1,15 +1,46 @@
 version: 7
-profiles: []
-groups: []
-configSync:
-  parts: {}
+profiles:
+  - options:
+      cwd: /home/chm/
+      env: {}
+      command: sshpass
+      args:
+        - '-p'
+        - hmchen
+        - ssh
+        - chm@alps-vm
+    type: local
+    icon: fas fa-server
+    color: '#613d7c'
+    name: alps-vm
+    id: local:custom:alps-vm:21e254e7-922e-496a-83de-74b78091ee1d
+  - options:
+      cwd: /home/yjn/music-fox
+      env: {}
+      command: ./musicfox
+    name: music-fox
+    type: local
+    icon: fas fa-music
+    color: '#E51100'
+    id: local:custom:8d1220cc-aadd-4519-ae57-ea288df264ac
+  - type: ssh
+    icon: fas fa-desktop
+    options:
+      host: ''
+      algorithms: {}
+      input: {}
+      jumpHost: ssh:custom:aliyun:22ecfd15-f228-4ff3-a18a-763640a773c4
+      privateKeys: []
+    weight: -1
+    name: root@:22
+    id: ssh:custom:root@:22:9e227e91-a263-44a4-9a6c-dce470a9c242
 hotkeys:
-  toggle-window: []
+  toggle-window:
+    - Ctrl-Space
   copy-current-path: []
   ctrl-c:
     - Ctrl-C
-  copy:
-    - Ctrl-Shift-C
+  copy: []
   paste:
     - Ctrl-V
     - Shift-Insert
@@ -40,6 +71,7 @@ hotkeys:
     - Ctrl-Delete
   search:
     - Ctrl-Shift-F
+    - Ctrl-F
   pane-focus-all:
     - Ctrl-Shift-I
   focus-all-tabs:
@@ -58,8 +90,7 @@ hotkeys:
   settings-tab: {}
   settings:
     - Ctrl-,
-  serial:
-    - Alt-K
+  serial: []
   restart-serial-session: []
   new-tab:
     - Ctrl-Shift-T
@@ -90,8 +121,6 @@ hotkeys:
     - Ctrl-Shift
   duplicate-tab: []
   restart-tab: []
-  reconnect-tab: []
-  disconnect-tab: []
   explode-tab:
     - Ctrl-Shift-.
   combine-tabs:
@@ -134,12 +163,13 @@ hotkeys:
   split-top: []
   pane-nav-right:
     - Ctrl-Alt-Right
-  pane-nav-down:
-    - Ctrl-Alt-Down
+    - Alt-L
   pane-nav-up:
     - Ctrl-Alt-Up
+    - Alt-K
   pane-nav-left:
     - Ctrl-Alt-Left
+    - Alt-H
   pane-nav-previous:
     - Ctrl-Alt-[
   pane-nav-next:
@@ -166,76 +196,126 @@ hotkeys:
     - Ctrl-Shift-E
   command-selector:
     - Ctrl-Shift-P
+  pane-nav-down:
+    - Ctrl-Alt-Down
+    - Alt-J
+  reconnect-tab: []
+  disconnect-tab: []
+  group-selectors: {}
   scroll-page-up:
     - Alt-PageUp
   scroll-page-down:
     - Alt-PageDown
-  group-selectors: {}
 terminal:
   searchOptions: {}
   colorScheme:
-    name: Tabby Default
-    foreground: '#cacaca'
-    background: '#171717'
-    cursor: '#bbbbbb'
+    name: Material
+    foreground: '#eceff1'
+    background: rgba(38, 50, 56, 1)
+    selection: null
+    cursor: '#FFCC00'
+    cursorAccent: null
     colors:
       - '#000000'
-      - '#ff615a'
-      - '#b1e969'
-      - '#ebd99c'
-      - '#5da9f6'
-      - '#e86aff'
-      - '#82fff7'
-      - '#dedacf'
-      - '#313131'
-      - '#f58c80'
-      - '#ddf88f'
-      - '#eee5b2'
-      - '#a5c7ff'
-      - '#ddaaff'
-      - '#b7fff9'
+      - '#D62341'
+      - '#9ECE58'
+      - '#FAED70'
+      - '#396FE2'
+      - '#BB80B3'
+      - '#2DDAFD'
+      - '#d0d0d0'
+      - rgba(255, 255, 255, 0.2)
+      - '#FF5370'
+      - '#C3E88D'
+      - '#FFCB6B'
+      - '#82AAFF'
+      - '#C792EA'
+      - '#89DDFF'
       - '#ffffff'
+  fontSize: 16
+  font: MesloLGS NF
+  customColorSchemes:
+    - name: OceanicMaterial
+      foreground: '#eceff1'
+      background: rgba(38, 50, 56, 1)
+      cursor: '#FFCC00'
+      colors:
+        - '#000000'
+        - '#D62341'
+        - '#9ECE58'
+        - '#FAED70'
+        - '#396FE2'
+        - '#BB80B3'
+        - '#2DDAFD'
+        - '#d0d0d0'
+        - rgba(255, 255, 255, 0.2)
+        - '#FF5370'
+        - '#C3E88D'
+        - '#FFCB6B'
+        - '#82AAFF'
+        - '#C792EA'
+        - '#89DDFF'
+        - '#ffffff'
+  autoOpen: true
+  showTabProfileIcon: true
   lightColorScheme:
     name: OceanicMaterial
-    foreground: '#c2c8d7'
-    background: '#1c262b'
-    cursor: '#b3b8c3'
+    foreground: '#eceff1'
+    background: rgba(38, 50, 56, 1)
+    cursor: '#FFCC00'
     colors:
       - '#000000'
-      - '#ee2b2a'
-      - '#40a33f'
-      - '#ffea2e'
-      - '#1e80f0'
-      - '#8800a0'
-      - '#16afca'
-      - '#a4a4a4'
-      - '#777777'
-      - '#dc5c60'
-      - '#70be71'
-      - '#fff163'
-      - '#54a4f3'
-      - '#aa4dbc'
-      - '#42c7da'
+      - '#D62341'
+      - '#9ECE58'
+      - '#FAED70'
+      - '#396FE2'
+      - '#BB80B3'
+      - '#2DDAFD'
+      - '#d0d0d0'
+      - rgba(255, 255, 255, 0.2)
+      - '#FF5370'
+      - '#C3E88D'
+      - '#FFCB6B'
+      - '#82AAFF'
+      - '#C792EA'
+      - '#89DDFF'
       - '#ffffff'
-  customColorSchemes: []
-  fontSize: 15
   bell: visual
-  font: MesloLGS NF
-ssh: {}
+ssh:
+  knownHosts:
+    - host: aliyun
+      port: 9331
+      type: ecdsa-sha2-nistp256
+      digest: q6Uc8kYi+gspPDlM53gkzmW1dCLLDgh4WU6XRvVv7HU=
+    - host: aliyun
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: RLkS0CXZtfxjh2yodVyS2wUABtfa7/JdrINLpOH/V5k=
+    - host: 43.137.2.25
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: K32IGee96vpmDJgcko1ksofbal/p7TTelCEIJyhqX1Y=
 clickableLinks:
   modifier: ctrlKey
 accessibility: {}
 appearance:
-  opacity: 0.69
+  opacity: 0.83
+  frame: native
   colorSchemeMode: light
 hacks: {}
-providerBlacklist: []
-commandBlacklist: []
-profileBlacklist: []
+enableWelcomeTab: false
+pluginBlacklist: []
 profileDefaults:
   ssh:
     disableDynamicTitle: true
-language: zh-CN
 recoverTabs: false
-enableWelcomeTab: false
-pluginBlacklist: []
+providerBlacklist: []
+commandBlacklist: []
+groups: []
+profileBlacklist: []
+configSync:
+  parts: {}
+  configID: 23786
+  auto: true
+enableAutomaticUpdates: false
+language: zh-CN
